@@ -1,0 +1,16 @@
+potenciação
+
+Math.Pow(n,p)
+
+radiciação
+Math.Srqt (n,r)
+
+
+arredondamento
+Math.Round(variavel,2)
+
+
+incremento
+i <- i+5 => i += 5
+i <- i-5 => i -= 5
+i <- i*5 => i *= 5
