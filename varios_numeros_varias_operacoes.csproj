@@ -1,53 +1,93 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B80E36D0-23E9-4BC8-AEA2-0A42979392CE}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>varios_numeros_varias_operacoes</RootNamespace>
-    <AssemblyName>varios_numeros_varias_operacoes</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-</Project>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace varios_numeros_varias_operacoes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            /*----------------- E X E R C Í C I O ------------------
+             * Crie um algoritmo que leia vários números, calcule e mostre:
+             - a soma dos números digitados;
+            - a quantidade de números digitados;
+            - a média dos números digitados;
+            - o maior número digitado;
+            - o menor número digitado;
+            - a média dos números pares, dentre os números digitados;
+            - a porcentagem dos números ímpares entre todos os números digitados*/
+
+            int n, soma=0, soma_par=0, maior, menor, cont=0, cont_par=0, cont_impar=0;
+            double media, media_par=0, porcent_impar;
+
+            Console.WriteLine("|------------------------------------------------------|");
+            Console.WriteLine("|---------- Vários números, várias operações ----------|");
+            Console.WriteLine("|------------------------------------------------------|\n");
+
+            Console.WriteLine("Digite um número inteiro positivo ou 0 para terminar:");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            maior = n;
+            menor = n;
+            
+            while (n > 0)
+            {
+
+                soma += n;
+      //----------- M A I O R NÚMERO ---------------
+
+                if(n > maior)
+                {
+                    maior = n;
+                } // fim do if
+         
+       //---------- M E N O R NÚMERO --------------
+                if (n < menor && n > 0)
+                {
+                    menor = n;
+                }// fim do if
+
+      // ---------- NÚMEROS PARES e ÍMPARES ---------------
+
+                if (n % 2 == 0)
+                {
+                    cont_par++;
+                    soma_par += n;
+                }
+                else
+                {
+                    cont_impar++;
+                }
+
+                soma_par += n;
+                cont++;
+                
+                Console.WriteLine("Digite um número inteiro positivo ou 0 para terminar:");
+                n = Convert.ToInt32(Console.ReadLine());
+            }// fim do while
+
+            // --------------- MÉDIAS --------------
+
+            media_par = soma_par / (cont_par);
+            media = (soma/cont);
+            porcent_impar = (cont_impar * 100) / cont;
+
+            //------------- Saída de dados --------------
+
+            Console.WriteLine("SOMA dos números digitados: " + soma);
+            Console.WriteLine("QUANTIDADE de números digitados: " + cont);
+            Console.WriteLine("MÉDIA dos números digitados: " + media);
+            Console.WriteLine("MAIOR número digitado: " + maior);
+            Console.WriteLine("MENOR número digitado: " + menor);
+            Console.WriteLine("MÉDIA dos números PARES: " + media_par);
+            Console.WriteLine("PORCENTAGEM de números ímpares: " + porcent_impar + "%");
+
+            Console.ReadKey();
+
+        }// fim da classe principal
+    }// fim da classe
+}
