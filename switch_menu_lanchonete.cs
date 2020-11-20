@@ -33,7 +33,9 @@ namespace switch_menu_lanchonete
             Console.WriteLine("|------------------------------------------|");
             Console.WriteLine("|----------- Menu de Lanchonete -----------|");
             Console.WriteLine("|------------------------------------------|\n");
-
+            
+            /*------------------ M E N U ----------------------*/
+            
             Console.WriteLine("(1) Cheeseburger --- R$ 5,00");
             Console.WriteLine("(2) Hamburger ------ R$ 4,50");
             Console.WriteLine("(3) Batata frita --- R$ 4,80");
@@ -45,7 +47,9 @@ namespace switch_menu_lanchonete
 
             Console.WriteLine("Digite a quantidade:");
             quant = Convert.ToInt32(Console.ReadLine());
-
+            
+            
+            /*--------------- S W I T C H -------------------*/
             switch (op) {
                 case 1:
                     total = Math.Round(quant * 5, 2);
@@ -67,6 +71,7 @@ namespace switch_menu_lanchonete
                     break;
             }// fim do switch
 
+            // ------------------- S A Í D A de dados -------------------
             Console.WriteLine("\nTotal a pagar: R$" + Math.Round(quant * total, 2));
 
             Console.ReadKey();
