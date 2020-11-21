@@ -23,7 +23,7 @@ namespace switch_menu_operacoes
             Console.WriteLine("(2) Subtrair dois números.");
             Console.WriteLine("(3) Multiplicar dois números.");
             Console.WriteLine("(4) Dividir dois números.");
-            Console.WriteLine("(5) Raiz quadrada dos números.");
+            Console.WriteLine("(5) Raiz quadrada de um número.");
             escolha = Convert.ToInt32(Console.ReadLine());
 
             switch (escolha) {
